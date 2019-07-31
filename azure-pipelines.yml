@@ -1,4 +1,5 @@
 # Python package
+
 # Create and test a Python package on multiple Python versions.
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -8,6 +9,8 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
+
+
 strategy:
   matrix:
     Python36:
@@ -21,7 +24,11 @@ steps:
 
 - script: |
     pip install -r requirements.txt
+    conda install -c pnlbwh ants
   displayName: 'Install dependencies'
 
-- script: |
-    install.sh test
+
+- task: Bash@3
+  inputs:
+    filePath: 'install.sh'
+    arguments: 'test'
