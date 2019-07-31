@@ -24,4 +24,4 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    install.sh test'
+    install.sh test
