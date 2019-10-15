@@ -250,7 +250,7 @@ cp -a $testDir/enigmaTemplateOutput/ $testDir/fmribTemplateOutput/
 # run all unittests together ==============================
 pushd .
 cd $SCRIPTDIR
-python -m unittest -v $testDir/test_*
+pytest -v $testDir/test_*
 popd
 
 echo Testing complete.
