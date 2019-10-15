@@ -157,7 +157,7 @@ $libDir/tbss_all -i $IMAGELIST --generate \
 # python -m unittest -v $testDir/"test_enigma.py"
 # popd
 
-
+: << END
 # --fmrib branch ===========================================
 echo Testing --fmrib branch ...
 pushd .
@@ -242,6 +242,10 @@ $libDir/tbss_all -i AD/origdata,RD/origdata \
 || echo Partial --studyTemplate branch execution FAILED
 popd
 
+END
+
+cp -a $testDir/enigmaTemplateOutput/ $testDir/studyTemplateOutput/
+cp -a $testDir/enigmaTemplateOutput/ $testDir/fmribTemplateOutput/
 
 # run all unittests together ==============================
 pushd .
